@@ -30,7 +30,7 @@
 
 ### Step-by-Step:
 1. **Fork** the Repository  
-2. **Edit `vars.py`** — Fill in your `API_ID` and `API_HASH`  
+2. **Edit `vars.py`** — Fill in your `22049628` and `db9c4ee4be741f296522a9bb9a945722`  
 3. **Edit `README.md`** — Change the deploy button links to point to your own fork  
 4. Choose any platform and **Deploy** directly using the buttons below:
 
