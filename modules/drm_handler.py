@@ -44,7 +44,7 @@ from text_handler import text_to_txt
 from youtube_handler import ytm_handler, y2t_handler, getcookies_handler, cookies_handler
 from utils import progress_bar
 from vars import API_ID, API_HASH, BOT_TOKEN, OWNER, CREDIT, AUTH_USERS, TOTAL_USERS, cookies_file_path
-from vars import api_url, api_token, CP_TOKEN   # 👈 Yahan CP_TOKEN import add kiya
+from vars import api_url, api_token
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
 
@@ -227,7 +227,7 @@ async def drm_handler(bot: Client, m: Message):
 
 #........................................................................................................................................................................................
     failed_count = 0
-    count = int(raw_text)    
+    count =int(raw_text)    
     arg = int(raw_text)
     try:
         for i in range(arg-1, len(links)):
@@ -241,28 +241,6 @@ async def drm_handler(bot: Client, m: Message):
             url = "https://" + Vxy
             link0 = "https://" + Vxy
 #........................................................................................................................................................................................
-
-            # ===== Classplus liveSessionId/contentId signed URL handling =====
-            if "liveSessionId" in url or "contentId" in url:
-                if "?" in url:
-                    query_part = url.split("?", 1)[1]
-                else:
-                    # fallback: old style replace
-                    query_part = url.replace("//", "").replace("https", "").replace("http", "").replace(":", "")
-                print(query_part)
-
-                headers = {
-                    "x-access-token": CP_TOKEN
-                }
-
-                response = requests.get(
-                    f"https://api.classplusapp.com/cams/uploader/video/jw-signed-url?{query_part}",
-                    headers=headers
-                ).json()
-
-                print(response)
-                url = response["url"]
-            # ===== End Classplus block =====
              
             name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             if m.text:
